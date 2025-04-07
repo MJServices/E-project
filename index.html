@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="public/css/navbar.css" />
+    <link rel="stylesheet" href="/public/css/footer.css" />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/2.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body></body>
+  <body>
+    <header>
+      <!-- Main Navbar -->
+      <nav class="navbar navbar-expand-lg d-flex">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="index.html">e-shop</a>
+
+            <div class="mobile-actions d-flex">
+              <a href="html/cart.html" class="cart-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </a>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="html/products.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#articles">Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Bottom Navigation -->
+      <div
+        class="nav-bottom d-flex align-items-center justify-content-between w-100"
+      >
+        <div class="container">
+          <div
+            class="nav-bottom-wrapper d-flex align-items-center justify-content-between w-100"
+          >
+            <div class="categories-wrapper">
+              <a href="html/products.html" style="text-decoration: none">
+                <button
+                  class="categories-btn"
+                  id="categoriesBtn"
+                  aria-expanded="false"
+                  aria-controls="categoriesDropdown"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-list"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    />
+                  </svg>
+                  All Categories
+                </button>
+              </a>
+
+              <div class="categories-dropdown" id="categoriesDropdown">
+                <a href="#">Electronics</a>
+                <a href="#">Clothing</a>
+                <a href="#">Home & Garden</a>
+                <a href="#">Sports & Outdoors</a>
+                <a href="#">Beauty & Personal Care</a>
+                <a href="#">Toys & Games</a>
+              </div>
+            </div>
+
+            <div class="promo-links">
+              <a href="#product-grid"
+                ><span class="promo-tag">LIMITED SALE</span></a
+              >
+              <a href="#product-grid" class="hide-mobile">New Arrival</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--craosal START-->
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="public/images/carousel/WhatsApp Image 2025-03-22 at 14.17.35_5b2188bf.jpg"
+            class="d-block w-100 carousel-img"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="public/images/carousel/WhatsApp Image 2025-03-22 at 14.18.49_f517378a.jpg"
+            class="d-block w-100 carousel-img"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="public/images/carousel/WhatsApp Image 2025-03-22 at 14.19.50_88de0e37.jpg"
+            class="d-block w-100 carousel-img"
+            alt="..."
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!--craosal end-->
+
+    <!--logos START-->
+    <div class="logo-container">
+      <a href="ASSETS/image/logo2.jpg" alt="Samsung Logo">
+        <img
+          src="public/images/logos/Screenshot 2025-03-24 152101.png"
+          alt="Samsung Logo"
+          class="logo"
+        />
+      </a>
+      <a href="ASSEST/image/logo 3.png" alt="OpenAI Logo">
+        <img
+          src="public/images/logos/Screenshot 2025-03-24 152159.png"
+          alt="OpenAI Logo"
+          class="logo"
+        />
+      </a>
+      <a href="ASSETS/image/logo1.png" alt="Amazon Logo">
+        <img
+          src="public/images/logos/Screenshot 2025-03-24 152217.png"
+          alt="Amazon Logo"
+          class="logo"
+        />
+      </a>
+      <a href="ASSETS/image/logo5.png" alt="Tencent Logo">
+        <img
+          src="public/images/logos/Screenshot 2025-03-24 152235.png"
+          alt="Tencent Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+    <!--logos end-->
+
+    <!--image start-->
+    <section class="main-section">
+      <section class="b-section">
+        <div class="b-cont">
+          <div class="b-text-cont">
+            <h4>Free Shipping</h4>
+            <p>
+              Special for others over $500.00 worldwide Available throughout May
+              & June 2023.
+            </p>
+          </div>
+          <button>Shop Now</button>
+        </div>
+      </section>
+      <section class="s-section">
+        <div class="s-cont">
+          <div class="s-text-cont">
+            <h4>Black Friday Clearance</h4>
+            <p>Up to 80% off</p>
+          </div>
+          <button>Shop Now</button>
+        </div>
+        <div class="s-cont">
+          <div class="s-text-cont">
+            <h4>First Purchase 20% Discount</h4>
+            <p>Use FIRSTPAY code</p>
+          </div>
+          <button>Shop Now</button>
+        </div>
+      </section>
+    </section>
+    <!--image end-->
+    <!-- Product section start -->
+    <div class="container-fluid">
+      <div class="left-text"><h2>New Product</h2></div>
+      <div class="right-text">
+        <div class="dropdown">
+          <label for="sort">Sort by</label>
+          <div class="drop">
+            <select id="sort">
+              <option value="all" selected>All Categories</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Card section -->
+    <!-- Card Pagenation section -->
+    <div class="product-grid" id="product-grid" style="text-decoration: none">
+      <!-- Product Card 1: Tablet -->
+      <a href="html/product/tablet.html" class="product-link">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="public/images/products carousel/tab.jpg" alt="Tablet" />
+            <span class="discount-tag">30%</span>
+          </div>
+          <div class="product-info">
+            <span class="category">TABLET</span>
+            <h3 class="product-name">Tablet Pro 128 GB HD</h3>
+            <p class="product-description">RAM 8 GB 1080P 4K ... (120)</p>
+            <p class="star">★★★★★</p>
+            <div class="price">
+              <span class="current-price">$129.00</span>
+              <span class="original-price">~$179.00~</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Product Card 2: Laptop -->
+      <a href="html/product/laptop.html" class="product-link">
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="public/images/products carousel/laptop.jpg"
+              alt="Laptop"
+            />
+          </div>
+          <div class="product-info">
+            <span class="category">LAPTOP</span>
+            <h3 class="product-name">S21 Laptop Ultra HD LED</h3>
+            <p class="product-description">Screen Feature 2023 ... (100)</p>
+            <p class="star">★★★★★</p>
+            <div class="price">
+              <span class="current-price">$1,989.00</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Product Card 3: Audio -->
+      <a href="html/product/headphones.html" class="product-link">
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="public/images/products carousel/headphone.jpg"
+              alt="Headphones"
+            />
+          </div>
+          <div class="product-info">
+            <span class="category">AUDIO</span>
+            <h3 class="product-name">
+              WH-1000XM4 Wireless Headphones High Q...
+            </h3>
+            <p class="product-description">(120)</p>
+            <p class="star">★★★★★</p>
+            <div class="price">
+              <span class="current-price">$59.00</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Product Card 4: Home -->
+      <a href="html/product/washing-machine.html" class="product-link">
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="public/images/products carousel/watchingMachine.jpg"
+              alt="Washing Machine"
+            />
+            <span class="discount-tag">10%</span>
+          </div>
+          <div class="product-info">
+            <span class="category">HOME</span>
+            <h3 class="product-name">
+              Wash Machine 11 KG Front Loading Steam ...
+            </h3>
+            <p class="product-description">(120)</p>
+            <p class="star">★★★★★</p>
+            <div class="price">
+              <span class="current-price">$5,699.00</span>
+              <span class="original-price">~$5,999.00~</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Product Card 5: Camera -->
+      <a href="html/product/camera.html" class="product-link">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="public/images/products carousel/camra.jpg" alt="Camera" />
+          </div>
+          <div class="product-info">
+            <span class="category">CAMERA</span>
+            <h3 class="product-name">CamPro HERO10 Black</h3>
+            <p class="product-description">Sleek Design 2023 4K ... (20)</p>
+            <p class="star">★★★★★</p>
+            <div class="price">
+              <span class="current-price">$1,499.99</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!--  CART Pagenation SECTION END -->
+    <br />
+    <!-- Pagination Container Start -->
+    <div class="pagination-container">
+      <ul class="pagination">
+        <li><a href="#">❮</a></li>
+        <!-- Left arrow -->
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li class="active"><a href="#">3</a></li>
+        <!-- Active page -->
+        <li><a href="#">...</a></li>
+        <li><a href="#">10</a></li>
+        <li><a href="#">❯</a></li>
+        <!-- Right arrow -->
+      </ul>
+    </div>
+    <!-- Pagination Container End!-->
+    <footer style="background: #fff; padding-top: 40px">
+      <section class="faq">
+        <h2>FREQUENTLY ASKED QUESTIONS</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What payment methods do you accept?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We accept various secure payment methods including:</p>
+              <ul>
+                <li>Credit/Debit Cards (Visa, MasterCard, AmEx)</li>
+                <li>PayPal</li>
+                <li>Bank Transfers</li>
+                <li>Digital Wallets (Apple Pay, Google Pay)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How long does shipping take?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Shipping times vary by location:</p>
+              <ul>
+                <li>Standard Domestic: 3-5 business days</li>
+                <li>Express Domestic: 1-2 business days</li>
+                <li>International: 7-14 business days</li>
+              </ul>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do you offer international shipping?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Yes, we proudly offer international shipping to over 50
+                countries!
+              </p>
+              <ul>
+                <li>Free shipping on orders over $500</li>
+                <li>Standard international delivery: 7-14 business days</li>
+                <li>Express international delivery: 3-5 business days</li>
+                <li>Real-time package tracking available</li>
+              </ul>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can I track my order?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! We provide comprehensive order tracking:</p>
+              <ul>
+                <li>Get instant tracking number via email</li>
+                <li>Track through your account dashboard</li>
+                <li>Real-time status updates</li>
+                <li>SMS notifications available</li>
+                <li>24/7 customer support for tracking assistance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Tech Talk Section -->
+      <section
+        class="tech-talk"
+        style="background: #fff; margin: 0; padding: 40px 20px"
+      >
+        <h2>TECH TALK</h2>
+        <p class="subtitle">
+          Stay up to date with the latest trends, reviews, &amp; insights
+        </p>
+        <a
+          href="https://www.bestproducts.com/tech/g864/cool-tech-products-you-need/"
+          style="color: black; text-decoration: none"
+        >
+          <div class="articles" id="articles">
+            <div class="article main-article">
+              <div class="article-img">
+                <img
+                  src="https://imgs.search.brave.com/fvFHPX482EB3WeElGdStyt1pC0KsMN-HGoKa9o0r9Oo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnlp/bWcuY29tL3V1L2Fw/aS9yZXMvMS4yLzR0/TFZEc1M4TmVlV25u/SEoxc0hGZEEtLX5C/L1ptazljM1J5YVcw/N2FEMDNNakE3ZHow/eE1qZ3dPMkZ3Y0ds/a1BYbDBZV05vZVc5/dS9odHRwczovL3Mu/eWltZy5jb20vb3Mv/Y3JlYXRyLXVwbG9h/ZGVkLWltYWdlcy8y/MDI0LTEyLzY1OGYw/YzcwLWI5ODQtMTFl/Zi05ZTdjLTYzZmM2/OGU5YTU1MA"
+                  alt="Tech Gadgets"
+                />
+                <span class="featured-tag">Featured</span>
+              </div>
+              <div class="article-content">
+                <h3>TOP 100 TECH GADGETS OF 2025</h3>
+                <p>
+                  Discover the most innovative and cutting-edge tech gadgets
+                  that will dominate the market in 2025.
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-clock"></i> 50 min read</span>
+                  <span><i class="far fa-calendar"></i> April 10, 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="article-list">
+              <div class="article">
+                <h4>
+                  High Quality vs Price: Why You Should Upgrade to A Smart TV?
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+              <div class="article">
+                <h4>
+                  How to Choose the Right Laptop for Your Needs: Expert Says
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+              <div class="article">
+                <h4>
+                  The Future of Smart Home Technology: A Look into Our Future
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- Update bottom footer -->
+      <div
+        style="
+          background: #1a1a1a;
+          margin: 0;
+          padding: 40px 20px 0 20px; /* Removed bottom padding */
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+          bottom: 0; /* Added to ensure no gap at bottom */
+        "
+      >
+        <div class="footer-top">
+          <div class="support">
+            <i class="fas fa-headset"></i>
+            <p>Customer Service Available 24/7</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-shield-alt"></i>
+            <p>Secure Certified Marketplace Since 2017</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-truck"></i>
+            <p>Free Shipping Available Worldwide</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-lock"></i>
+            <p>Transparent Return Policy</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <p>+1 (555) 123-4567</p>
+            <p>123 Tech Street, Suite 456, XYZ City, USA</p>
+          </div>
+          <div class="footer-column">
+            <h4>Categories</h4>
+            <p>Computers &amp; Tablets</p>
+            <p>TV &amp; Home Theater</p>
+            <p>Audio &amp; Headphones</p>
+            <p>Cell Phones</p>
+            <p>Cameras &amp; Camcorders</p>
+            <p>Gaming Equipment</p>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <p>About Us</p>
+            <p>Contact Us</p>
+            <p>Return Policy</p>
+            <p>Help Center</p>
+            <p>Store Locations</p>
+          </div>
+          <div class="footer-column">
+            <h4>Links</h4>
+            <p>Product List</p>
+            <p>Shopping Cart</p>
+            <p>Checkout</p>
+            <p>My Account</p>
+          </div>
+          <div class="footer-column">
+            <h4>Payments</h4>
+            <div class="payment-icons">
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer-logo">
+          <p>e-shop</p>
+          <p>© 2023 e-shop. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="public/js/script.js"></script>
+  <script src="public/js/footer.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const icon = item.querySelector(".fa-chevron-down");
+        question.addEventListener("click", () => {
+          // Close other open items
+          faqItems.forEach((otherItem) => {
+            if (otherItem !== item && otherItem.classList.contains("active")) {
+              otherItem.classList.remove("active");
+              otherItem.querySelector(".faq-answer").style.maxHeight = null;
+              otherItem.querySelector(".fa-chevron-down").style.transform =
+                "rotate(0deg)";
+            }
+          });
+          // Toggle current item
+          item.classList.toggle("active");
+          if (item.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.style.transform = "rotate(180deg)";
+          } else {
+            answer.style.maxHeight = null;
+            icon.style.transform = "rotate(0deg)";
+          }
+        });
+      });
+
+      const categoriesBtn = document.getElementById("categoriesBtn");
+      const categoriesDropdown = document.getElementById("categoriesDropdown");
+
+      if (categoriesBtn && categoriesDropdown) {
+        // Toggle dropdown visibility
+        categoriesBtn.addEventListener("click", function () {
+          const isExpanded =
+            categoriesBtn.getAttribute("aria-expanded") === "true";
+          categoriesBtn.setAttribute("aria-expanded", !isExpanded);
+          categoriesDropdown.style.maxHeight = isExpanded
+            ? "0"
+            : `${categoriesDropdown.scrollHeight}px`;
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !categoriesBtn.contains(event.target) &&
+            !categoriesDropdown.contains(event.target)
+          ) {
+            categoriesBtn.setAttribute("aria-expanded", "false");
+            categoriesDropdown.style.maxHeight = "0";
+          }
+        });
+      }
+    });
+  </script>
+</html>

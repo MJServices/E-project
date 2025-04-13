@@ -78,6 +78,7 @@ header .nav-link:after {
 
 header .nav-link:hover:after {
   width: 100%;
+  overflow-y: hidden;
 }
 
 header .nav-link:hover {

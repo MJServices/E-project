@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff5900 0%, #ff8e3c 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 100;
+            transition: transform 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .counter-container {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .counter {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .counter::after {
+            content: '%';
+            font-size: 1.5rem;
+            position: absolute;
+            top: 0.5rem;
+            right: -2rem;
+            opacity: 0.7;
+        }
+
+        .joke-container {
+            max-width: 80%;
+            width: 600px;
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 
+                        0 2px 8px rgba(255, 255, 255, 0.1) inset,
+                        0 -2px 8px rgba(0, 0, 0, 0.1) inset;
+            transform: translateY(40px);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.17, 0.67, 0.29, 0.99);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .joke-container.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .joke-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .joke-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .joke-text {
+            font-size: 2rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .joke-punchline {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s cubic-bezier(0.17, 0.67, 0.29, 0.99) 0.7s;
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .joke-punchline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease 1s;
+        }
+
+        .joke-punchline.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .joke-punchline.visible::before {
+            transform: scaleX(1);
+        }
+
+        .loading-bar-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.7), #ffffff);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            transition: width 0.1s linear;
+            position: relative;
+        }
+
+        .loading-bar::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+        }
+
+        .hidden {
+            transform: translateY(-100vh);
+        }
+
+        .emoji {
+            display: inline-block;
+            margin-left: 8px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
+        }
+
+        .circle-decoration {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: -1;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: 15%;
+            left: 10%;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            right: 15%;
+        }
+
+        .circle-3 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 20%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .counter {
+                font-size: 2.5rem;
+            }
+
+            .counter::after {
+                font-size: 1.2rem;
+                right: -1.5rem;
+            }
+
+            .joke-container {
+                width: 90%;
+                padding: 2rem;
+            }
+
+            .joke-text {
+                font-size: 1.6rem;
+            }
+
+            .joke-punchline {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .counter {
+                font-size: 2rem;
+            }
+
+            .counter-container {
+                bottom: 1.5rem;
+                left: 1.5rem;
+            }
+
+            .joke-text {
+                font-size: 1.3rem;
+            }
+
+            .joke-punchline {
+                font-size: 1.2rem;
+            }
+
+            .joke-title {
+                font-size: 1rem;
+            }
+        }
+
+        /* Main content styles */
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }

@@ -221,6 +221,8 @@ footer {
   width: 100%;
   overflow: hidden;
   margin-bottom: 0; /* Removed bottom margin */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  position: relative; /* Ensure proper positioning */
 }
 
 .footer-top {
@@ -288,6 +290,10 @@ footer {
 .footer-logo p:last-child {
   font-size: 12px;
   color: #ccc;
+}
+
+.footer-text {
+  word-wrap: break-word; /* Prevent long text from overflowing */
 }
 
 /* Responsive Design */

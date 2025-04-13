@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+  <head> <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechStore</title>
     <!-- Bootstrap CSS -->
@@ -29,29 +28,9 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <!-- Custom CSS for Orange Theme -->
-    <style>
-      .list-group-item.active {
-        background-color: #f97316; /* Orange shade */
-        border-color: #f97316;
-        color: white;
-      }
-      .text-orange {
-        color: #f97316; /* Orange shade for text */
-      }
-      .orange-btn {
-        background-color: #f97316; /* Orange shade for buttons */
-        border-color: #f97316;
-        color: white;
-      }
-      .orange-btn:hover {
-        background-color: #ea580c; /* Darker orange for hover */
-        border-color: #ea580c;
-      }
-    </style>
+    <link rel="stylesheet" href="../public/css/product/product.css">
   </head>
   <body>
-    <!-- Header -->
     <header>
       <!-- Main Navbar -->
       <nav class="navbar navbar-expand-lg d-flex">
@@ -95,16 +74,10 @@
                 <a class="nav-link" href="products.html">Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#articles">Blog</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link " href="compare.html">Compare</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -165,32 +138,67 @@
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main
-      class="container mx-auto px-4 py-8"
-      style="margin-top: 50px; margin-bottom: 80px"
-    >
-      <div class="row" style="width: 100vw">
-        <!-- Sidebar (Categories) -->
-        <div class="col-lg-3">
-          <div class="bg-white rounded-lg shadow-sm p-4">
-            <h2 class="h5 mb-4">Categories</h2>
-            <div id="category-list" class="list-group">
-              <!-- Category buttons will be generated here -->
-            </div>
-          </div>
+    <div class="product-details-container">
+      <div class="product-images">
+        <div class="main-image">
+          <img
+            src="../../public/images/products carousel/iphone.jpg"
+            alt="Camera"
+            id="mainImage"
+          />
         </div>
-        <!-- Product Grid -->
-        <div class="col-lg-9">
-          <div
-            id="product-grid"
-            class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
-          >
-            
-          </div>
+        <div class="thumbnail-gallery">
+          <img
+            src=""
+            alt="Thumbnail 1"
+            class="thumbnail"
+            onclick="changeImage('')"
+          />
+          <img
+            src=""
+            alt="Thumbnail 2"
+            class="thumbnail"
+            onclick="changeImage('')"
+          />
+          <img
+            src=""
+            alt="Thumbnail 3"
+            class="thumbnail"
+            onclick="changeImage('')"
+          />
         </div>
       </div>
-    </main>
+      <div class="product-info">
+        <h1 class="product-title"></h1>
+        <p class="product-price"></p>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span class="reviews">(256 Reviews)</span>
+        </div>
+        <p class="product-description">
+          Experience the perfect blend of innovation, style, and performance
+          with this premium-quality product designed to elevate your daily life.
+          Crafted with meticulous attention to detail, it boasts a sleek, modern
+          design that complements any setting—whether at home, work, or on the
+          go. Built using high-grade materials, it ensures durability without
+          compromising on elegance. The user-friendly interface, combined with
+          advanced features, provides an effortless experience that adapts
+          seamlessly to your needs. Whether you're a professional, enthusiast,
+          or casual user, this product offers unmatched versatility and
+          reliability.
+        </p>
+        <div class="quantity-selector">
+          <button class="qty-btn decrease" onclick="updateQuantity(-1)">
+            -
+          </button>
+          <span class="qty-value" id="quantity">1</span>
+          <button class="qty-btn increase" onclick="updateQuantity(1)">
+            +
+          </button>
+        </div>
+        <button class="add-to-cart-btn" onclick="">Add to Cart</button>
+      </div>
+    </div>
     <section class="faq">
       <h2>FREQUENTLY ASKED QUESTIONS</h2>
       <div class="faq-list">
@@ -1183,113 +1191,73 @@ function updateActiveButton() {
     console.error('Error saving to localStorage:', error);
   }
 }
-      // Add to Cart Functionality
-      function addToCart(product) {
-        try {
-          // Retrieve existing cart from localStorage or initialize an empty array
-          let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-          // Check if the product already exists in the cart
-          const existingProduct = cart.find((item) => item.id === product.id);
-          if (existingProduct) {
-            // Increment the quantity if the product already exists
-            existingProduct.quantity += 1;
-          } else {
-            // Add the product to the cart with an initial quantity of 1
-            cart.push({ ...product, quantity: 1 });
-          }
-
-          // Save the updated cart back to localStorage
-          localStorage.setItem("cart", JSON.stringify(cart));
-
-          // Provide feedback to the user
-          alert(`${product.name} has been added to your cart!`);
-        } catch (error) {
-          console.error("Error adding product to cart:", error);
-        }
-      }
     </script>
-  
-  </body>
-  
   <script src="../public/js/footer.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const faqItems = document.querySelectorAll(".faq-item");
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Fetch product data from localStorage
+        const product = JSON.parse(localStorage.getItem("selectedProduct"));
 
-      if (faqItems.length === 0) {
-        console.error(
-          "No FAQ items found. Ensure the HTML structure is correct."
-        );
-        return;
-      }
-
-      console.log("FAQ items found:", faqItems.length);
-
-      faqItems.forEach((item, index) => {
-        const question = item.querySelector(".faq-question");
-        const answer = item.querySelector(".faq-answer");
-        const icon = item.querySelector(".fa-chevron-down");
-
-        if (!question || !answer || !icon) {
-          console.error(`Missing elements in FAQ item at index ${index}`);
+        if (!product) {
+          console.error("No product data found in localStorage.");
           return;
         }
 
-        console.log(`FAQ item ${index} initialized.`);
+        // Populate product details dynamically
+        document.querySelector(".product-title").textContent = product.name;
+        document.querySelector(
+          ".product-price"
+        ).textContent = `$${product.price.toLocaleString()}`;
+      
+        document.getElementById("mainImage").src = product.image;
 
-        // Ensure the answer has a transition for smooth animation
-        answer.style.transition = "max-height 0.3s ease";
-        answer.style.overflow = "hidden";
-        answer.style.maxHeight = "0";
+        // Populate thumbnails
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        thumbnails[0].src = product.image;
+        thumbnails[0].setAttribute(
+          "onclick",
+          `changeImage('${product.image}')`
+        );
+        thumbnails[1].src = product.image;
+        thumbnails[1].setAttribute(
+          "onclick",
+          `changeImage('${product.image}')`
+        );
+        thumbnails[2].src = product.image;
+        thumbnails[2].setAttribute(
+          "onclick",
+          `changeImage('${product.image}')`
+        );
 
-        question.addEventListener("click", () => {
-          const isActive = item.classList.contains("active");
-          console.log(`FAQ item ${index} clicked. Active: ${isActive}`);
-          console.log(otherItem, item);
-          // Close all other items
-          faqItems.forEach((otherItem, otherIndex) => {
-            if (otherItem !== item && otherItem.classList.contains("active")) {
-              console.log(`Closing FAQ item ${otherIndex}`);
-              otherItem.classList.remove("active");
-              const otherAnswer = otherItem.querySelector(".faq-answer");
-              const otherIcon = otherItem.querySelector(".fa-chevron-down");
-              if (otherAnswer) {
-                otherAnswer.style.maxHeight = "0";
-                console.log(`FAQ item ${otherIndex} maxHeight set to 0`);
-              }
-              if (otherIcon) {
-                otherIcon.style.transform = "rotate(0deg)";
-                console.log(`FAQ item ${otherIndex} icon rotated to 0deg`);
-              }
-            }
-          });
-
-          // Toggle current item
-          if (isActive) {
-            console.log(`Deactivating FAQ item ${index}`);
-            item.classList.remove("active");
-            answer.style.maxHeight = "0";
-            icon.style.transform = "rotate(0deg)";
-          } else {
-            console.log(`Activating FAQ item ${index}`);
-            item.classList.add("active");
-
-            // Force reflow to ensure the transition works
-            answer.style.maxHeight = "none"; // Temporarily set to none to calculate height
-            const scrollHeight = answer.scrollHeight; // Get the full height
-            answer.style.maxHeight = `${scrollHeight}px`; // Apply the height
-            console.log(`FAQ item ${index} maxHeight set to ${scrollHeight}px`);
-            icon.style.transform = "rotate(180deg)";
-          }
-
-          // Debugging: Check the computed styles
-          const computedMaxHeight = window.getComputedStyle(answer).maxHeight;
-          console.log(
-            `FAQ item ${index} computed maxHeight: ${computedMaxHeight}`
-          );
-        });
+        // Update Add to Cart button
+        const addToCartBtn = document.querySelector(".add-to-cart-btn");
+        addToCartBtn.setAttribute(
+          "onclick",
+          `addToCart({
+        id: '${product.id}',
+        name: '${product.name}',
+        price: ${product.price},
+        image: '${product.image}'
+      })`
+        );
       });
-    });
-  </script>
+
+      function changeImage(src) {
+        document.getElementById("mainImage").src = src;
+      }
+
+      function updateQuantity(change) {
+        let qty = parseInt(document.getElementById("quantity").textContent);
+        qty = Math.max(1, qty + change);
+        document.getElementById("quantity").textContent = qty;
+      }
+
+      function addToCart(item) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(item);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${item.name} has been added to your cart.`);
+      }
+    </script>
+  </body>
 </html>

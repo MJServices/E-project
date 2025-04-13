@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore</title>
+    <!-- Bootstrap CSS -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../public/css/navbar.css" />
+    <link rel="stylesheet" href="../public/css/footer.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --primary: #ff6b35;
+        --primary-light: #ff8f5e;
+        --primary-dark: #e85a27;
+        --secondary: #fffaf0;
+        --text-dark: #2d2a32;
+        --text-light: #fffaf0;
+        --text-muted: #6d6a75;
+        --accent: #1cbfff;
+        --transition-fast: 0.3s ease;
+        --transition-medium: 0.5s ease;
+        --transition-slow: 0.8s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--secondary);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      .section {
+        padding: 80px 5%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-content {
+        overflow-y: hidden;
+      }
+      .section-title {
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        display: inline-block;
+        color: var(--text-dark);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 80px;
+        background: var(--primary);
+        bottom: -10px;
+        left: 0;
+        border-radius: 2px;
+        transition: width var(--transition-fast);
+      }
+
+      .section-title:hover::after {
+        width: 100%;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-center .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        background: var(--primary);
+        color: var(--text-light);
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: transform var(--transition-fast),
+          box-shadow var(--transition-fast);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background: var(--primary-dark);
+        transition: all var(--transition-fast);
+        z-index: -1;
+        border-radius: 30px;
+      }
+
+      .btn:hover {
+        box-shadow: 0 10px 20px rgba(232, 90, 39, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .btn:hover::before {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 120px 5%;
+        background: var(--secondary);
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .hero-shape {
+        position: absolute;
+        background: var(--primary);
+        opacity: 0.1;
+        border-radius: 50%;
+      }
+
+      .hero-shape-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        left: -100px;
+      }
+
+      .hero-shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        right: 10%;
+      }
+
+      .hero-shape-3 {
+        width: 500px;
+        height: 500px;
+        top: 10%;
+        right: -250px;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        text-align: center;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--text-dark);
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero-title span {
+        color: var(--primary);
+        position: relative;
+      }
+
+      .hero-title span::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 6px;
+        background: var(--primary);
+        bottom: 8px;
+        left: 0;
+        z-index: -1;
+        opacity: 0.3;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+      }
+
+      /* Story Section */
+      .story-section {
+        background: var(--secondary);
+        position: relative;
+      }
+
+      .story-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .story-content {
+        opacity: 1;
+      }
+
+      .story-text p {
+        margin-bottom: 1.5rem;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+
+      .story-highlight {
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .story-image-container {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transform: translateY(50px);
+        opacity: 1;
+      }
+
+      .story-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-medium);
+      }
+
+      .story-image-container:hover .story-image {
+        transform: scale(1.05);
+      }
+
+      .story-decorative-element {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: var(--primary);
+        border-radius: 50%;
+        top: -75px;
+        right: -75px;
+        z-index: -1;
+        opacity: 0.15;
+      }
+
+      .professional-image {
+        border: 5px solid var(--primary-light);
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Mission & Vision */
+      .mission-vision-section {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 0.05) 0%,
+          rgba(255, 250, 240, 1) 100%
+        );
+        overflow: hidden;
+      }
+
+      .mission-vision-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+
+      .mission-vision-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all var(--transition-fast);
+        position: relative;
+        overflow: hidden;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mission-vision-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-icon {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        transition: transform var(--transition-medium);
+      }
+
+      .mission-vision-card:hover .card-icon {
+        transform: rotate(360deg);
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .card-title::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        transition: width var(--transition-fast);
+      }
+
+      .mission-vision-card:hover .card-title::after {
+        width: 100%;
+      }
+
+      .card-text {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .card-bg {
+        position: absolute;
+        bottom: -100px;
+        right: -100px;
+        width: 200px;
+        height: 200px;
+        background: var(--primary);
+        border-radius: 50%;
+        opacity: 0.05;
+        transition: all var(--transition-medium);
+      }
+
+      .mission-vision-card:hover .card-bg {
+        transform: scale(1.5);
+      }
+
+      /* Team Section */
+      .team-section {
+        background: var(--secondary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .team-member {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all var(--transition-fast);
+        position: relative;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .member-image-container {
+        position: relative;
+        padding-top: 100%;
+        overflow: hidden;
+      }
+
+      .member-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-medium);
+      }
+
+      .team-member:hover .member-image {
+        transform: scale(1.1);
+      }
+
+      .member-details {
+        padding: 25px;
+        position: relative;
+        background: white;
+      }
+
+      .member-details.wider-card {
+        width: 100%;
+      }
+
+      .member-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--text-dark);
+      }
+
+      .member-position {
+        font-size: 0.95rem;
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .member-bio {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-link {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: var(--secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        transition: all var(--transition-fast);
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: var(--text-light);
+        transform: translateY(-3px);
+      }
+
+      /* Values Section */
+      .values-section {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 0.05) 0%,
+          rgba(255, 250, 240, 1) 100%
+        );
+        position: relative;
+      }
+
+      .values-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 30px;
+      }
+
+      .value-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all var(--transition-fast);
+        position: relative;
+        overflow: hidden;
+        opacity: 1;
+        transform: translateY(0);
+        border-bottom: 4px solid transparent;
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        border-bottom: 4px solid var(--primary);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .value-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 107, 53, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--primary);
+        font-size: 1.5rem;
+        transition: all var(--transition-medium);
+      }
+
+      .value-card:hover .value-icon {
+        background: var(--primary);
+        color: var(--text-light);
+        transform: rotateY(180deg);
+      }
+
+      .value-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+      }
+
+      .value-description {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        color: var(--text-light);
+        text-align: center;
+        padding: 80px 5%;
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .cta-description {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .cta-btn {
+        background: var(--text-light);
+        color: var(--primary);
+        font-weight: 600;
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      .cta-btn::before {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .cta-btn:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Fun Facts Section */
+      .facts-section {
+        background: var(--secondary);
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .facts-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+      }
+
+      .fact-item {
+        flex: 1;
+        min-width: 200px;
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      .fact-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 10px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .fact-number::after {
+        content: "+";
+        font-size: 2rem;
+        position: absolute;
+        top: 5px;
+        right: -20px;
+      }
+
+      .fact-text {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* Timeline Section */
+      .timeline-section {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 53, 0.05) 0%,
+          rgba(255, 250, 240, 1) 100%
+        );
+        position: relative;
+        overflow: hidden;
+        color: var(--text-muted);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 6px;
+        background-color: var(--primary);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 3px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -13px;
+        background-color: var(--secondary);
+        border: 4px solid var(--primary);
+        top: 20px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-left {
+        left: 0;
+      }
+
+      .timeline-right {
+        left: 50%;
+      }
+
+      .timeline-right::after {
+        left: -12px;
+      }
+
+      .timeline-content {
+        padding: 20px 30px;
+        background-color: white;
+        position: relative;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        opacity: 1;
+        transform: translateX(-50px);
+        color: var(--text-muted);
+      }
+
+      .timeline-right .timeline-content {
+        transform: translateX(50px);
+      }
+
+      .timeline-date {
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        color: var(--text-muted);
+      }
+
+      .timeline-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--text-muted);
+      }
+
+      .timeline-text {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .section {
+          padding: 60px 5%;
+        }
+
+        .hero-section {
+          padding: 100px 5%;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .timeline::after {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item::after {
+          left: 18px;
+        }
+
+        .timeline-right {
+          left: 0%;
+        }
+
+        .timeline-content {
+          transform: translateX(0) !important;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .story-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .mission-vision-container {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .hero-description {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .facts-container {
+          gap: 30px;
+        }
+
+        .fact-item {
+          min-width: 150px;
+        }
+
+        .fact-number {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          padding: 50px 5%;
+        }
+
+        .hero-section {
+          padding: 80px 5%;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .story-text p {
+          font-size: 1rem;
+        }
+
+        .mission-vision-card {
+          padding: 30px;
+        }
+
+        .card-title {
+          font-size: 1.3rem;
+        }
+
+        .card-text {
+          font-size: 1rem;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+
+        .value-card {
+          padding: 25px;
+        }
+
+        .timeline-content {
+          padding: 15px 20px;
+        }
+
+        .timeline-date {
+          font-size: 1rem;
+        }
+
+        .timeline-title {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .section {
+          padding: 40px 5%;
+          color: var(--text-muted);
+        }
+
+        .hero-section {
+          padding: 60px 5%;
+          color: var(--text-muted);
+        }
+
+        .hero-title {
+          font-size: 2.2rem;
+          color: var(--text-muted);
+        }
+
+        .hero-description {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+          color: var(--text-muted);
+        }
+
+        .btn {
+          padding: 10px 24px;
+          font-size: 0.9rem;
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+
+        .values-container {
+          grid-template-columns: 1fr;
+        }
+
+        .fact-item {
+          flex: 0 0 100%;
+          margin-bottom: 20px;
+        }
+
+        .timeline-item {
+          padding-left: 50px;
+        }
+
+        .timeline::after {
+          left: 21px;
+        }
+
+        .timeline-item::after {
+          left: 8px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      /* Animation classes */
+      .fade-in {
+        animation: fadeIn 1s forwards;
+      }
+
+      .slide-up {
+        animation: slideUp 1s forwards;
+      }
+
+      .slide-left {
+        animation: slideLeft 1s forwards;
+      }
+
+      .slide-right {
+        animation: slideRight 1s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideLeft {
+        from {
+          opacity: 1;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideRight {
+        from {
+          opacity: 1;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Particles */
+      .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--primary);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Main Navbar -->
+      <nav class="navbar navbar-expand-lg d-flex">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="../index.html">La-Imperial</a>
+
+            <div class="mobile-actions d-flex">
+              <a href="cart.html" class="cart-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </a>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#articles">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="compare.html">Compare</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Bottom Navigation -->
+      <div
+        class="nav-bottom d-flex align-items-center justify-content-between w-100"
+      >
+        <div class="container">
+          <div
+            class="nav-bottom-wrapper d-flex align-items-center justify-content-between w-100"
+          >
+            <div class="categories-wrapper">
+              <a href="products.html" style="text-decoration: none">
+                <button
+                  class="categories-btn"
+                  id="categoriesBtn"
+                  aria-expanded="false"
+                  aria-controls="categoriesDropdown"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    class="bi bi-list"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                    />
+                  </svg>
+                  All Categories
+                </button>
+              </a>
+
+              <div class="categories-dropdown" id="categoriesDropdown">
+                <a href="#">Electronics</a>
+                <a href="#">Clothing</a>
+                <a href="#">Home & Garden</a>
+                <a href="#">Sports & Outdoors</a>
+                <a href="#">Beauty & Personal Care</a>
+                <a href="#">Toys & Games</a>
+              </div>
+            </div>
+
+            <div class="promo-links">
+              <a href="#product-grid"
+                ><span class="promo-tag">LIMITED SALE</span></a
+              >
+              <a href="#product-grid" class="hide-mobile">New Arrival</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+      </div>
+      <div class="container"  style="display: flex; justify-content: center;">
+        <div
+          class="hero-content"
+          style="overflow-y: hidden; max-height: 130%"
+          id="hero-content"
+        >
+          <h1 class="hero-title">About <span>La-imperial</span></h1>
+          <p class="hero-description">
+            Discover the story behind our journey to revolutionize the tech
+            industry and make cutting-edge technology accessible to everyone.
+          </p>
+          <a href="#our-story" class="btn">Our Journey</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section section" id="our-story">
+      <div class="container">
+        <h2 class="section-title">Our Story</h2>
+        <div
+          class="story-container"
+          style="overflow-y: hidden; max-height: 130%"
+        >
+          <div class="story-content" id="story-text">
+            <div class="story-text">
+              <p>
+                The journey of
+                <span class="story-highlight">La-imperial</span> began as a
+                semester-end E-project by a group of passionate students.
+                Minhaj, the team lead, along with Kuzaima, Huzaifa, Faraz, and
+                Hashir (fondly known as "the kaam chorr"), came together with a
+                shared vision to create something impactful and innovative.
+              </p>
+              <p>
+                Despite the challenges of tight deadlines and balancing academic
+                responsibilities, the team worked tirelessly to bring their idea
+                to life. Minhaj led the team with exceptional leadership, while
+                Kuzaima and Huzaifa focused on the technical aspects. Faraz
+                contributed his creative ideas, and Hashir, in his unique way,
+                kept the team entertained and motivated.
+              </p>
+              <p>
+                What started as a simple project evolved into a platform that
+                showcases the team's dedication, creativity, and teamwork.
+                La-imperial is not just a project; it is a testament to what can
+                be achieved when a group of individuals comes together with a
+                common goal.
+              </p>
+              <a href="#mission-vision" class="btn">Our Mission</a>
+            </div>
+          </div>
+          <div class="story-image-container" id="story-image">
+            <div class="story-decorative-element"></div>
+            <img
+              src="https://imgs.search.brave.com/S3cGZTOysDYGMs-nmAcHfAaAQn6ZStMPAGFWQVKMkrw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvODYz/NDk3NDk4L3Bob3Rv/L2ktbmVlZC1ldmVy/eW9uZS10by1naXZl/LW1lLXRoZWlyLWJl/c3QtaWRlYXMuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPU50/dXhVOTk5OGJXTURz/Wk44UUIwT3gtNUFs/cFE3Tm9pZk9oYnVY/UVdjcG89"
+              alt="La-imperial Team Working Together"
+              class="story-image professional-image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section section" id="mission-vision">
+      <div class="particles" id="particles-1"></div>
+      <div class="container">
+        <h2 class="section-title text-center">Our Mission & Vision</h2>
+        <p class="subtitle text-center">
+          Guided by our core principles, we're building a better technological
+          future for all.
+        </p>
+        <div class="mission-vision-container">
+          <div class="mission-vision-card" id="mission-card">
+            <i class="fas fa-rocket card-icon"></i>
+            <h3 class="card-title">Our Mission</h3>
+            <p class="card-text">
+              At La-imperial, our mission is to create a project that transcends
+              boundaries and sets a benchmark for innovation, creativity, and
+              teamwork. We aim to deliver a platform that not only meets
+              expectations but redefines them, showcasing the limitless
+              potential of collaboration and dedication. Our goal is to inspire
+              others to dream big and achieve the extraordinary.
+            </p>
+            <div class="card-bg"></div>
+          </div>
+          <div class="mission-vision-card" id="vision-card">
+            <i class="fas fa-eye card-icon"></i>
+            <h3 class="card-title">Our Vision</h3>
+            <p class="card-text">
+              Our vision is to be a team that is unmatched in every
+              aspect—creativity, innovation, collaboration, and execution. We
+              strive to set new standards of excellence, inspire others through
+              our work, and leave a lasting impact on the world. At La-imperial,
+              we believe that together, we can achieve the extraordinary and
+              redefine what is possible.
+            </p>
+            <div class="card-bg"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section section">
+      <div class="container">
+        <h2 class="section-title text-center">Meet Our Team</h2>
+        <p class="subtitle text-center">
+          The passionate individuals behind La-imperial.
+        </p>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://media-mct1-1.cdn.whatsapp.net/v/t61.24694-24/473409069_1381818869730081_1468939963455251826_n.jpg?ccb=11-4&oh=01_Q5AaIeCHe_FmRjWPiidA5jKS4hzw7ZWLOCTWP1Ub4MtX90Pq&oe=68054656&_nc_sid=5e03e0&_nc_cat=108"
+                alt="Team Member 1"
+                class="member-image"
+              />
+            </div>
+            <div class="member-details">
+              <h3 class="member-name">Minhaj (MJ Dev)</h3>
+              <p class="member-position">CEO & Founder</p>
+              <p class="member-bio">
+                Minhaj is a highly skilled developer and an exceptional team
+                lead, known for his innovative solutions and leadership in the
+                tech industry.
+              </p>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://i.ibb.co/60mfJLcY/b11c2c57-e7bd-4780-8915-e484bd940706.jpg"
+                alt="Team Member 2"
+                class="member-image"
+              />
+            </div>
+            <div class="member-details">
+              <h3 class="member-name">Khuzaima</h3>
+              <p class="member-position">CTO</p>
+              <p class="member-bio">
+                Khuzaima is a very good friend and a perfect colleague, known
+                for his technical expertise and collaborative spirit at
+                La-imperial.
+              </p>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://i.ibb.co/KpY7DqZZ/f50849ba-3d61-469f-b104-15900363d98c.jpg"
+                alt="f50849ba-3d61-469f-b104-15900363d98c"
+                alt="Team Member 3"
+                class="member-image"
+              />
+            </div>
+            <div class="member-details">
+              <h3 class="member-name">Huzaifa</h3>
+              <p class="member-position">Head of Marketing</p>
+              <p class="member-bio">
+                Huzaifa is a hardworking individual and a great colleague,
+                dedicated to driving success through his efforts and expertise.
+              </p>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://i.ibb.co/LXpb66cB/311958c5-c441-4e9d-acd4-983c9b6cfd86.jpg"
+                alt="Team Member 3"
+                class="member-image"
+              />
+            </div>
+            <div class="member-details wider-card">
+              <h3 class="member-name">Faraz</h3>
+              <p class="member-position">Brand embasidar</p>
+              <p class="member-bio">
+                Faraz is a serious and focused individual, known for his
+                unwavering dedication and professionalism in every task he
+                undertakes.
+              </p>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image-container">
+              <img
+                src="https://i.ibb.co/1fZGPVc3/Screenshot-2025-04-11-161200.png"
+                alt="Team Member 3"
+                class="member-image"
+              />
+            </div>
+            <div class="member-details" style="margin-top: 40px">
+              <h3 class="member-name">Hashir (The kaam Choor)</h3>
+              <p class="member-position">Nothing</p>
+              <p class="member-bio">
+                Hashir is the life of the team, known for his unmatched comedy
+                and legendary "kaam chorii" skills that keep everyone
+                entertained and on their toes.
+              </p>
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="faq">
+      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What payment methods do you accept?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We accept various secure payment methods including:</p>
+            <ul>
+              <li>Credit/Debit Cards (Visa, MasterCard, AmEx)</li>
+              <li>PayPal</li>
+              <li>Bank Transfers</li>
+              <li>Digital Wallets (Apple Pay, Google Pay)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does shipping take?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Shipping times vary by location:</p>
+            <ul>
+              <li>Standard Domestic: 3-5 business days</li>
+              <li>Express Domestic: 1-2 business days</li>
+              <li>International: 7-14 business days</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you offer international shipping?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, we proudly offer international shipping to over 50 countries!
+            </p>
+            <ul>
+              <li>Free shipping on orders over $500</li>
+              <li>Standard international delivery: 7-14 business days</li>
+              <li>Express international delivery: 3-5 business days</li>
+              <li>Real-time package tracking available</li>
+              <li>Customs and duties may apply based on your location</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is your return policy?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We offer a hassle-free return policy to ensure customer
+              satisfaction:
+            </p>
+            <ul>
+              <li>Returns accepted within 30 days of purchase</li>
+              <li>Items must be in original condition and packaging</li>
+              <li>Refunds processed within 5-7 business days</li>
+              <li>Contact our support team for assistance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* FAQ Section Styles */
+      .faq {
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      .faq h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 200px; /* Adjust based on content */
+      }
+
+      .faq-item.active .fa-chevron-down {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+      }
+    </style>
+    <footer style="background-color: #f8f9fa; padding-top: 40px">
+      <!-- Tech Talk Section -->
+      <section
+        class="tech-talk"
+        style="
+          background: #fff;
+          margin: 0;
+          padding: 40px 20px;
+          margin-bottom: 50px;
+          border-radius: 15px;
+        "
+      >
+        <h2>TECH TALK</h2>
+        <p class="subtitle">
+          Stay up to date with the latest trends, reviews, &amp; insights
+        </p>
+        <a
+          href="https://www.bestproducts.com/tech/g864/cool-tech-products-you-need/"
+          style="color: black; text-decoration: none"
+        >
+          <div class="articles" id="articles">
+            <div class="article main-article">
+              <div class="article-img">
+                <img
+                  src="https://imgs.search.brave.com/fvFHPX482EB3WeElGdStyt1pC0KsMN-HGoKa9o0r9Oo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnlp/bWcuY29tL3V1L2Fw/aS9yZXMvMS4yLzR0/TFZEc1M4TmVlV25u/SEoxc0hGZEEtLX5C/L1ptazljM1J5YVcw/N2FEMDNNakE3ZHow/eE1qZ3dPMkZ3Y0ds/a1BYbDBZV05vZVc5/dS9odHRwczovL3Mu/eWltZy5jb20vb3Mv/Y3JlYXRyLXVwbG9h/ZGVkLWltYWdlcy8y/MDI0LTEyLzY1OGYw/YzcwLWI5ODQtMTFl/Zi05ZTdjLTYzZmM2/OGU5YTU1MA"
+                  alt="Tech Gadgets"
+                />
+                <span class="featured-tag">Featured</span>
+              </div>
+              <div class="article-content">
+                <h3>TOP 100 TECH GADGETS OF 2025</h3>
+                <p>
+                  Discover the most innovative and cutting-edge tech gadgets
+                  that will dominate the market in 2025.
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-clock"></i> 50 min read</span>
+                  <span><i class="far fa-calendar"></i> April 10, 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="article-list">
+              <div class="article">
+                <h4>
+                  High Quality vs Price: Why You Should Upgrade to A Smart TV?
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+              <div class="article">
+                <h4>
+                  How to Choose the Right Laptop for Your Needs: Expert Says
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+              <div class="article">
+                <h4>
+                  The Future of Smart Home Technology: A Look into Our Future
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- Update bottom footer -->
+      <div
+        style="
+          background: #1a1a1a;
+          margin: 0;
+          padding: 40px 20px 0 20px; /* Removed bottom padding */
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+          bottom: 0; /* Added to ensure no gap at bottom */
+        "
+      >
+        <div class="footer-top">
+          <div class="support">
+            <i class="fas fa-headset"></i>
+            <p>Customer Service Available 24/7</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-shield-alt"></i>
+            <p>Secure Certified Marketplace Since 2017</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-truck"></i>
+            <p>Free Shipping Available Worldwide</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-lock"></i>
+            <p>Transparent Return Policy</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <p>+1 (555) 123-4567</p>
+            <p>123 Tech Street, Suite 456, XYZ City, USA</p>
+          </div>
+          <div class="footer-column">
+            <h4>Categories</h4>
+            <p>Computers &amp; Tablets</p>
+            <p>TV &amp; Home Theater</p>
+            <p>Audio &amp; Headphones</p>
+            <p>Cell Phones</p>
+            <p>Cameras &amp; Camcorders</p>
+            <p>Gaming Equipment</p>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <p>About Us</p>
+            <p>Contact Us</p>
+            <p>Return Policy</p>
+            <p>Help Center</p>
+            <p>Store Locations</p>
+          </div>
+          <div class="footer-column">
+            <h4>Links</h4>
+            <p>Product List</p>
+            <p>Shopping Cart</p>
+            <p>Checkout</p>
+            <p>My Account</p>
+          </div>
+          <div class="footer-column">
+            <h4>Payments</h4>
+            <div class="payment-icons">
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer-logo">
+          <p>e-shop</p>
+          <p>© 2023 e-shop. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="../public/js/footer.js"></script>
+  </body>
+</html>

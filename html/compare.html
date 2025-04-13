@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore</title>
+    <!-- Bootstrap CSS -->
+   
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    
+    <link rel="stylesheet" href="../public/css/footer.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../public/css/compare.css" />
+    <link rel="stylesheet" href="../public/css/navbar.css" />
+    
+<link rel="stylesheet" href="../public/css/footer.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg d-flex">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="../index.html">La-Imperial</a>
+
+            <div class="mobile-actions d-flex">
+              <a href="cart.html" class="cart-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-cart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
+                </svg>
+              </a>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="products.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#articles">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="compare.html">Compare</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Bottom Navigation -->
+    <div
+      class="nav-bottom d-flex align-items-center justify-content-between w-100 " style="background-color: #E85C37;"
+    >
+      <div class="container">
+        <div
+          class="nav-bottom-wrapper d-flex align-items-center justify-content-between w-100"
+        >
+          <div class="categories-wrapper" style="background-color: #E85C37;">
+            <a href="products.html" style="text-decoration: none; background-color: #E85C37;">
+              <button
+                class="categories-btn"
+                id="categoriesBtn"
+                aria-expanded="false"
+                aria-controls="categoriesDropdown"
+                style="background-color: #E85C37;""
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  class="bi bi-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+                All Categories
+              </button>
+            </a>
+
+       
+          </div>
+
+          <div class="promo-links" style="text-decoration: none; display: flex; gap: 20px;">
+            <a href="#product-grid"
+            style="text-decoration: none;  color: white;"><span class="promo-tag" >LIMITED SALE</span></a
+            >
+            <a href="#product-grid" class="hide-mobile" style="text-decoration: none; color: white;">New Arrival</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container compare">
+        <h1>Compare Appliances</h1>
+        <p>Select appliances to compare their features and specifications.</p>
+        <div class="dropdown-container-compare">
+          <label for="product-select">Choose Your Comparison:</label>
+          <select id="product-select" onchange="updateComparison()">
+            <option value="washer-dryer">Washer vs Dryer</option>
+            <option value="fridge-microwave">Fridge vs Microwave</option>
+            <option value="ac-heater">Air Conditioner vs Heater</option>
+            <option value="dishwasher-oven">Dishwasher vs Oven</option>
+          </select>
+        </div>
+        <div class="comparison-grid">
+          <div class="product-card" id="product1">
+            <h2 id="product1-name">Appliance 1</h2>
+            <img id="product1-image" src="" alt="Appliance 1 Image" />
+            <div class="feature">
+              <i class="fas fa-dollar-sign"></i> Price:
+              <span id="product1-price"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-cogs"></i> Features:
+              <span id="product1-features"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-battery-full"></i> Energy Efficiency:
+              <span id="product1-efficiency"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-certificate"></i> Warranty:
+              <span id="product1-warranty"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-info-circle"></i> Description:
+              <span id="product1-description"></span>
+            </div>
+          </div>
+          <div class="product-card" id="product2">
+            <h2 id="product2-name">Appliance 2</h2>
+            <img id="product2-image" src="" alt="Appliance 2 Image" />
+            <div class="feature">
+              <i class="fas fa-dollar-sign"></i> Price:
+              <span id="product2-price"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-cogs"></i> Features:
+              <span id="product2-features"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-battery-full"></i> Energy Efficiency:
+              <span id="product2-efficiency"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-certificate"></i> Warranty:
+              <span id="product2-warranty"></span>
+            </div>
+            <div class="feature">
+              <i class="fas fa-info-circle"></i> Description:
+              <span id="product2-description"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  
+    <footer style="background-color: #f8f9fa; padding-top: 40px">
+      <!-- Tech Talk Section -->
+      <section
+        class="tech-talk"
+        style="
+          background: #fff;
+          margin: 0;
+          padding: 40px 20px;
+          margin-bottom: 50px;
+          border-radius: 15px;
+        "
+      >
+        <h2>TECH TALK</h2>
+        <p class="subtitle">
+          Stay up to date with the latest trends, reviews, &amp; insights
+        </p>
+        <a
+          href="https://www.bestproducts.com/tech/g864/cool-tech-products-you-need/"
+          style="color: black; text-decoration: none"
+        >
+          <div class="articles" id="articles">
+            <div class="article main-article">
+              <div class="article-img">
+                <img
+                  src="https://imgs.search.brave.com/fvFHPX482EB3WeElGdStyt1pC0KsMN-HGoKa9o0r9Oo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnlp/bWcuY29tL3V1L2Fw/aS9yZXMvMS4yLzR0/TFZEc1M4TmVlV25u/SEoxc0hGZEEtLX5C/L1ptazljM1J5YVcw/N2FEMDNNakE3ZHow/eE1qZ3dPMkZ3Y0ds/a1BYbDBZV05vZVc5/dS9odHRwczovL3Mu/eWltZy5jb20vb3Mv/Y3JlYXRyLXVwbG9h/ZGVkLWltYWdlcy8y/MDI0LTEyLzY1OGYw/YzcwLWI5ODQtMTFl/Zi05ZTdjLTYzZmM2/OGU5YTU1MA"
+                  alt="Tech Gadgets"
+                />
+                <span class="featured-tag">Featured</span>
+              </div>
+              <div class="article-content">
+                <h3>TOP 100 TECH GADGETS OF 2025</h3>
+                <p>
+                  Discover the most innovative and cutting-edge tech gadgets
+                  that will dominate the market in 2025.
+                </p>
+                <div class="article-meta">
+                  <span><i class="far fa-clock"></i> 50 min read</span>
+                  <span><i class="far fa-calendar"></i> April 10, 2025</span>
+                </div>
+              </div>
+            </div>
+            <div class="article-list">
+              <div class="article">
+                <h4>
+                  High Quality vs Price: Why You Should Upgrade to A Smart TV?
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+              <div class="article">
+                <h4>
+                  How to Choose the Right Laptop for Your Needs: Expert Says
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+              <div class="article">
+                <h4>
+                  The Future of Smart Home Technology: A Look into Our Future
+                </h4>
+                <div class="article-meta">
+                  <span>TechTrend</span> | <span>10 April 2025</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+  
+      <!-- Update bottom footer -->
+      <div
+        style="
+          background: #1a1a1a;
+          margin: 0;
+          padding: 40px 20px 0 20px; /* Removed bottom padding */
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+          bottom: 0; /* Added to ensure no gap at bottom */
+        "
+      >
+        <div class="footer-top">
+          <div class="support">
+            <i class="fas fa-headset"></i>
+            <p>Customer Service Available 24/7</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-shield-alt"></i>
+            <p>Secure Certified Marketplace Since 2017</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-truck"></i>
+            <p>Free Shipping Available Worldwide</p>
+          </div>
+          <div class="support">
+            <i class="fas fa-lock"></i>
+            <p>Transparent Return Policy</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <p>+1 (555) 123-4567</p>
+            <p>123 Tech Street, Suite 456, XYZ City, USA</p>
+          </div>
+          <div class="footer-column">
+            <h4>Categories</h4>
+            <p>Computers &amp; Tablets</p>
+            <p>TV &amp; Home Theater</p>
+            <p>Audio &amp; Headphones</p>
+            <p>Cell Phones</p>
+            <p>Cameras &amp; Camcorders</p>
+            <p>Gaming Equipment</p>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <p>About Us</p>
+            <p>Contact Us</p>
+            <p>Return Policy</p>
+            <p>Help Center</p>
+            <p>Store Locations</p>
+          </div>
+          <div class="footer-column">
+            <h4>Links</h4>
+            <p>Product List</p>
+            <p>Shopping Cart</p>
+            <p>Checkout</p>
+            <p>My Account</p>
+          </div>
+          <div class="footer-column">
+            <h4>Payments</h4>
+            <div class="payment-icons">
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i>
+            </div>
+          </div>
+        </div>
+        <div class="footer-logo">
+          <p>e-shop</p>
+          <p>© 2023 e-shop. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="public/js/script.js"></script>
+    <script src="public/js/footer.js"></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom JS -->
+    <script src="../public/js/compare.js"></script>
+  </body>
+</html>

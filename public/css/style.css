@@ -53,8 +53,9 @@
 }
 
 .carousel-img {
-  height: 500px;
+  height: 44vw;
   object-fit: cover;
+  background-position: top;
 }
 
 @media (max-width: 768px) {

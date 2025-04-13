@@ -1,0 +1,49 @@
+.story-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.story-image.professional-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.95) contrast(1.1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.story-image.professional-image:hover {
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1.2);
+}
+
+.member-details {
+  padding: 25px;
+  position: relative;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.member-details.wider-card {
+  max-width: 90%; /* Increase width while maintaining responsiveness */
+  margin: 0 auto; /* Center the card */
+}
+
+@media (min-width: 768px) {
+  .member-details.wider-card {
+    max-width: 80%; /* Slightly wider for larger screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .member-details.wider-card {
+    max-width: 70%; /* Further widen for extra-large screens */
+  }
+}

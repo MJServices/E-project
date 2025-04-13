@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore</title>
+    <!-- Bootstrap CSS -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>Document</title>
+    
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    main {
+      background: #fffaf0;
+      color: #2d2a32;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    main>.container {
+      background-color: #ff6b35;
+      color: #fff;
+      margin: 40px auto;
+      max-width: 80vw;
+      border-radius: 10px;
+      display: flex;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 994px){
+      .container {
+        flex-direction: column;
+      }
+      .input-group{
+        flex-direction: column;
+      }
+      .contact-info {
+        margin-top: 20px;
+      }
+      .contact-form button {
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .contact-form {
+      flex: 1;
+      margin-right: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      color: #2d2a32;
+      resize: none;
+    }
+
+    /* Enhanced Submit Button Style */
+    .contact-form button {
+      background: #c9580c; /* Orange color */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background: #b24801; /* Darker orange on hover */
+      transform: scale(1.05); /* Slight zoom effect */
+    }
+
+    .contact-form button:active {
+      background: #ba4a00; /* Even darker orange on click */
+      transform: scale(0.95); /* Slight shrink effect */
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .contact-info h2 span {
+      color: #fffaf0;
+    }
+
+    .contact-info p {
+      margin-bottom: 20px;
+      color: #fffaf0;
+    }
+
+    .contact-info div {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info div i {
+      color: #fffaf0;
+    }
+  </style>
+  <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+  crossorigin="anonymous"
+/>
+<link rel="stylesheet" href="../public/css/navbar.css" />
+<link rel="stylesheet" href="../public/css/footer.css" />
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+></script>
+</head>
+<body>
+    <header>
+        <!-- Main Navbar -->
+        <nav class="navbar navbar-expand-lg d-flex">
+          <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+              <a class="navbar-brand" href="../index.html">La-Imperial</a>
+  
+              <div class="mobile-actions d-flex">
+                <a href="cart.html" class="cart-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-cart"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                    />
+                  </svg>
+                </a>
+  
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+            </div>
+  
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="products.html">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#articles">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="compare.html">Compare</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+  
+        <!-- Bottom Navigation -->
+        <div
+          class="nav-bottom d-flex align-items-center justify-content-between w-100"
+        >
+          <div class="container">
+            <div
+              class="nav-bottom-wrapper d-flex align-items-center justify-content-between w-100"
+            >
+              <div class="categories-wrapper">
+                <a href="products.html" style="text-decoration: none">
+                  <button
+                    class="categories-btn"
+                    id="categoriesBtn"
+                    aria-expanded="false"
+                    aria-controls="categoriesDropdown"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                      class="bi bi-list"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+                      />
+                    </svg>
+                    All Categories
+                  </button>
+                </a>
+  
+                <div class="categories-dropdown" id="categoriesDropdown">
+                  <a href="#">Electronics</a>
+                  <a href="#">Clothing</a>
+                  <a href="#">Home & Garden</a>
+                  <a href="#">Sports & Outdoors</a>
+                  <a href="#">Beauty & Personal Care</a>
+                  <a href="#">Toys & Games</a>
+                </div>
+              </div>
+  
+              <div class="promo-links">
+                <a href="#product-grid"
+                  ><span class="promo-tag">LIMITED SALE</span></a
+                >
+                <a href="#product-grid" class="hide-mobile">New Arrival</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+  <!-- Contact Section -->
+ <main>
+    <div class="container">
+        <div class="contact-form">
+          <h2>Get in Touch</h2>
+          <p>We'd love to hear from you! Please fill out the form below:</p>
+          <input type="text" placeholder="Name" required>
+          <div style="display: flex; gap: 10px;" class="input-group">
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Phone Number" required>
+          </div>
+          <textarea rows="5" placeholder="Message" required></textarea>
+          <button type="submit">Submit</button>
+        </div>
+        <div class="contact-info">
+          <h2>Contact <span>Us</span></h2>
+          <p>For questions, technical assistance, or collaboration opportunities, reach out to us:</p>
+          <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>123 Tech Street, Suite 456, XYZ City, USA</span>
+          </div>
+          <div>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:support@eshop.com" style="color: #fffaf0; text-decoration: none;">support@eshop.com</a>
+          </div>
+          <div>
+            <i class="fas fa-phone-alt"></i>
+            <span>+1 (555) 123-4567</span>
+          </div>
+        </div>
+      </div>
+ </main>
+ <section class="faq">
+    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What payment methods do you accept?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We accept various secure payment methods including:</p>
+          <ul>
+            <li>Credit/Debit Cards (Visa, MasterCard, AmEx)</li>
+            <li>PayPal</li>
+            <li>Bank Transfers</li>
+            <li>Digital Wallets (Apple Pay, Google Pay)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does shipping take?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Shipping times vary by location:</p>
+          <ul>
+            <li>Standard Domestic: 3-5 business days</li>
+            <li>Express Domestic: 1-2 business days</li>
+            <li>International: 7-14 business days</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you offer international shipping?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>
+            Yes, we proudly offer international shipping to over 50 countries!
+          </p>
+          <ul>
+            <li>Free shipping on orders over $500</li>
+            <li>Standard international delivery: 7-14 business days</li>
+            <li>Express international delivery: 3-5 business days</li>
+            <li>Real-time package tracking available</li>
+            <li>Customs and duties may apply based on your location</li>
+          </ul>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What is your return policy?</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>
+            We offer a hassle-free return policy to ensure customer
+            satisfaction:
+          </p>
+          <ul>
+            <li>Returns accepted within 30 days of purchase</li>
+            <li>Items must be in original condition and packaging</li>
+            <li>Refunds processed within 5-7 business days</li>
+            <li>Contact our support team for assistance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* FAQ Section Styles */
+    .faq {
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px; /* Adjust based on content */
+    }
+
+    .faq-item.active .fa-chevron-down {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+  </style>
+
+  <footer style="background-color: #f8f9fa; padding-top: 40px">
+    <!-- Tech Talk Section -->
+    <section
+      class="tech-talk"
+      style="
+        background: #fff;
+        margin: 0;
+        padding: 40px 20px;
+        margin-bottom: 50px;
+        border-radius: 15px;
+      "
+    >
+      <h2>TECH TALK</h2>
+      <p class="subtitle">
+        Stay up to date with the latest trends, reviews, &amp; insights
+      </p>
+      <a
+        href="https://www.bestproducts.com/tech/g864/cool-tech-products-you-need/"
+        style="color: black; text-decoration: none"
+      >
+        <div class="articles" id="articles">
+          <div class="article main-article">
+            <div class="article-img">
+              <img
+                src="https://imgs.search.brave.com/fvFHPX482EB3WeElGdStyt1pC0KsMN-HGoKa9o0r9Oo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zLnlp/bWcuY29tL3V1L2Fw/aS9yZXMvMS4yLzR0/TFZEc1M4TmVlV25u/SEoxc0hGZEEtLX5C/L1ptazljM1J5YVcw/N2FEMDNNakE3ZHow/eE1qZ3dPMkZ3Y0ds/a1BYbDBZV05vZVc5/dS9odHRwczovL3Mu/eWltZy5jb20vb3Mv/Y3JlYXRyLXVwbG9h/ZGVkLWltYWdlcy8y/MDI0LTEyLzY1OGYw/YzcwLWI5ODQtMTFl/Zi05ZTdjLTYzZmM2/OGU5YTU1MA"
+                alt="Tech Gadgets"
+              />
+              <span class="featured-tag">Featured</span>
+            </div>
+            <div class="article-content">
+              <h3>TOP 100 TECH GADGETS OF 2025</h3>
+              <p>
+                Discover the most innovative and cutting-edge tech gadgets
+                that will dominate the market in 2025.
+              </p>
+              <div class="article-meta">
+                <span><i class="far fa-clock"></i> 50 min read</span>
+                <span><i class="far fa-calendar"></i> April 10, 2025</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-list">
+            <div class="article">
+              <h4>
+                High Quality vs Price: Why You Should Upgrade to A Smart TV?
+              </h4>
+              <div class="article-meta">
+                <span>TechTrend</span> | <span>10 April 2025</span>
+              </div>
+            </div>
+            <div class="article">
+              <h4>
+                How to Choose the Right Laptop for Your Needs: Expert Says
+              </h4>
+              <div class="article-meta">
+                <span>TechTrend</span> | <span>10 April 2025</span>
+              </div>
+            </div>
+            <div class="article">
+              <h4>
+                The Future of Smart Home Technology: A Look into Our Future
+              </h4>
+              <div class="article-meta">
+                <span>TechTrend</span> | <span>10 April 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Update bottom footer -->
+    <div
+      style="
+        background: #1a1a1a;
+        margin: 0;
+        padding: 40px 20px 0 20px; /* Removed bottom padding */
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        bottom: 0; /* Added to ensure no gap at bottom */
+      "
+    >
+      <div class="footer-top">
+        <div class="support">
+          <i class="fas fa-headset"></i>
+          <p>Customer Service Available 24/7</p>
+        </div>
+        <div class="support">
+          <i class="fas fa-shield-alt"></i>
+          <p>Secure Certified Marketplace Since 2017</p>
+        </div>
+        <div class="support">
+          <i class="fas fa-truck"></i>
+          <p>Free Shipping Available Worldwide</p>
+        </div>
+        <div class="support">
+          <i class="fas fa-lock"></i>
+          <p>Transparent Return Policy</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>+1 (555) 123-4567</p>
+          <p>123 Tech Street, Suite 456, XYZ City, USA</p>
+        </div>
+        <div class="footer-column">
+          <h4>Categories</h4>
+          <p>Computers &amp; Tablets</p>
+          <p>TV &amp; Home Theater</p>
+          <p>Audio &amp; Headphones</p>
+          <p>Cell Phones</p>
+          <p>Cameras &amp; Camcorders</p>
+          <p>Gaming Equipment</p>
+        </div>
+        <div class="footer-column">
+          <h4>Support</h4>
+          <p>About Us</p>
+          <p>Contact Us</p>
+          <p>Return Policy</p>
+          <p>Help Center</p>
+          <p>Store Locations</p>
+        </div>
+        <div class="footer-column">
+          <h4>Links</h4>
+          <p>Product List</p>
+          <p>Shopping Cart</p>
+          <p>Checkout</p>
+          <p>My Account</p>
+        </div>
+        <div class="footer-column">
+          <h4>Payments</h4>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-logo">
+        <p>e-shop</p>
+        <p>© 2023 e-shop. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="public/js/script.js"></script>
+  <script src="public/js/footer.js"></script>
+</body>
+</html>

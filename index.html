@@ -14,6 +14,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="public/css/navbar.css" />
     <link rel="stylesheet" href="/public/css/footer.css" />
     <link rel="stylesheet" href="public/css/style.css" />
@@ -23,16 +24,224 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-  </head>
+    <link rel="stylesheet" href="public/css/wrapper.css">
+    <style>
+      /* Style for Download Details Button */
+      .btn-download {
+        background-color: #ff6600; /* Orange color */
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
 
-  <body></body>
+      .btn-download:hover {
+        background-color: #e65c00; /* Darker orange on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+      }
+
+      .btn-download:active {
+        background-color: #cc5200; /* Even darker orange on click */
+        transform: scale(0.95); /* Slight shrink effect */
+      }
+    </style>
+  </head>
   <body>
+    <div class="wrapper">
+      <div class="circle-decoration circle-1"></div>
+      <div class="circle-decoration circle-2"></div>
+      <div class="circle-decoration circle-3"></div>
+      <div class="particles"></div>
+      <div class="counter-container">
+          <div class="counter">1</div>
+          <div class="counter-label">Loading</div>
+      </div>
+      <div class="joke-container">
+          <div class="joke-title">JOKE OF THE DAY</div>
+          <div class="joke-text"></div>
+          <div class="joke-punchline"></div>
+      </div>
+      <div class="loading-bar-container">
+          <div class="loading-bar"></div>
+      </div>
+  </div>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // Array of joke objects
+          const jokes = [
+              {
+                  setup: "Why don't scientists trust atoms?",
+                  punchline: "Because they make up everything! 😄"
+              },
+              {
+                  setup: "What did the ocean say to the beach?",
+                  punchline: "Nothing, it just waved! 👋"
+              },
+              {
+                  setup: "Why did the scarecrow win an award?",
+                  punchline: "Because he was outstanding in his field! 🌾"
+              },
+              {
+                  setup: "How does a penguin build its house?",
+                  punchline: "Igloos it together! ❄️"
+              },
+              {
+                  setup: "Why don't eggs tell jokes?",
+                  punchline: "They'd crack each other up! 🥚"
+              },
+              {
+                  setup: "What do you call a fake noodle?",
+                  punchline: "An impasta! 🍝"
+              },
+              {
+                  setup: "Why did the bicycle fall over?",
+                  punchline: "Because it was two-tired! 🚲"
+              },
+              {
+                  setup: "How do you organize a space party?",
+                  punchline: "You planet! 🪐"
+              },
+              {
+                  setup: "What's orange and sounds like a parrot?",
+                  punchline: "A carrot! 🥕"
+              },
+              {
+                  setup: "Why can't you give Elsa a balloon?",
+                  punchline: "Because she will let it go! ❄️"
+              }
+          ];
+
+          // DOM elements
+          const wrapper = document.querySelector('.wrapper');
+          const counter = document.querySelector('.counter');
+          const jokeContainer = document.querySelector('.joke-container');
+          const jokeText = document.querySelector('.joke-text');
+          const jokePunchline = document.querySelector('.joke-punchline');
+          const loadingBar = document.querySelector('.loading-bar');
+          const particlesContainer = document.querySelector('.particles');
+
+          // Create particles with different sizes, colors and opacities
+          const particleColors = ['rgba(255,255,255,0.7)', 'rgba(255,255,255,0.5)', 'rgba(255,255,255,0.3)', 'rgba(255,235,200,0.6)'];
+          
+          for (let i = 0; i < 70; i++) {
+              const particle = document.createElement('div');
+              particle.classList.add('particle');
+              
+              const size = Math.random() * 12 + 2;
+              particle.style.width = `${size}px`;
+              particle.style.height = `${size}px`;
+              
+              particle.style.left = `${Math.random() * 100}%`;
+              particle.style.top = `${Math.random() * 100}%`;
+              particle.style.opacity = Math.random() * 0.6 + 0.1;
+              particle.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+              particle.style.boxShadow = `0 0 ${Math.random() * 10 + 5}px rgba(255,255,255,0.3)`;
+              
+              particlesContainer.appendChild(particle);
+              
+              // Animate particles
+              animateParticle(particle);
+          }
+
+          function animateParticle(particle) {
+              const duration = Math.random() * 25000 + 10000;
+              const xPos = Math.random() * 150 - 75;
+              const yPos = Math.random() * 150 - 75;
+              
+              particle.animate([
+                  { transform: `translate(0, 0)`, opacity: particle.style.opacity },
+                  { transform: `translate(${xPos}px, ${yPos}px)`, opacity: 0.1 }
+              ], {
+                  duration: duration,
+                  iterations: Infinity,
+                  direction: 'alternate',
+                  easing: 'ease-in-out'
+              });
+          }
+
+          // Animate circle decorations
+          const circles = document.querySelectorAll('.circle-decoration');
+          circles.forEach(circle => {
+              const duration = Math.random() * 15000 + 20000;
+              const scale = Math.random() * 0.2 + 0.9;
+              
+              circle.animate([
+                  { transform: 'scale(1)', opacity: 0.05 },
+                  { transform: `scale(${scale})`, opacity: 0.08 }
+              ], {
+                  duration: duration,
+                  iterations: Infinity,
+                  direction: 'alternate',
+                  easing: 'ease-in-out'
+              });
+          });
+
+          // Select random joke
+          const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+          jokeText.textContent = randomJoke.setup;
+          jokePunchline.innerHTML = randomJoke.punchline;
+
+          // Animation timing
+          const counterEndValue = 100;
+          const animationDuration = 5000; // 5 seconds
+          const updateInterval = animationDuration / counterEndValue;
+          
+          // Show joke container with animation
+          setTimeout(() => {
+              jokeContainer.classList.add('visible');
+              
+              // Show punchline after a delay
+              setTimeout(() => {
+                  jokePunchline.classList.add('visible');
+              }, 1800);
+          }, 700);
+
+          // Counter animation with easing
+          let currentCount = 1;
+          let progress = 0;
+          const counterInterval = setInterval(() => {
+              progress += updateInterval / animationDuration;
+              
+              // Apply easing to make counter movement more natural
+              // Ease out cubic function
+              const easedProgress = 1 - Math.pow(1 - progress, 3);
+              currentCount = Math.ceil(easedProgress * counterEndValue);
+              
+              if (currentCount > counterEndValue) currentCount = counterEndValue;
+              
+              // Update counter text
+              counter.textContent = currentCount;
+              
+              // Update loading bar with eased progress
+              loadingBar.style.width = `${easedProgress * 100}%`;
+              
+              // Check if animation is complete
+              if (currentCount >= counterEndValue) {
+                  clearInterval(counterInterval);
+                  
+                  // Pause before hiding animation
+                  setTimeout(() => {
+                      wrapper.classList.add('hidden');
+                      
+                      // Remove from DOM after transition completes
+                      setTimeout(() => {
+                          wrapper.style.display = 'none';
+                      }, 1300);
+                  }, 1500);
+              }
+          }, updateInterval);
+      });
+  </script>
     <header>
       <!-- Main Navbar -->
       <nav class="navbar navbar-expand-lg d-flex">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href="index.html">e-shop</a>
+            <a class="navbar-brand" href="index.html">La-Imperial</a>
 
             <div class="mobile-actions d-flex">
               <a href="html/cart.html" class="cart-icon">
@@ -67,10 +276,25 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="html/products.html">Products</a>
+                <a class="nav-link" href="/html/products.html">Products</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#articles">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/compare.html">Compare</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#brands">Brands</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#categories">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/html/contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -264,9 +488,11 @@
     </section>
     <!--image end-->
     <!-- Product section start -->
-    <div class="container-fluid">
-      <div class="left-text"><h2>New Product</h2></div>
-      <div class="right-text">
+    <div class="container-fluid" style="background-color: #f8f9fa">
+      <div class="left-text" style="background-color: #f8f9fa">
+        <h2>New Product</h2>
+      </div>
+      <div class="right-text" style="background-color: #f8f9fa">
         <div class="dropdown">
           <label for="sort">Sort by</label>
           <div class="drop">
@@ -282,113 +508,107 @@
     </div>
     <!-- Card section -->
     <!-- Card Pagenation section -->
-    <div class="product-grid" id="product-grid" style="text-decoration: none">
+    <div
+      class="product-grid"
+      id="product-grid"
+      style="display: flex; overflow-x: auto; white-space: nowrap; gap: 16px"
+    >
       <!-- Product Card 1: Tablet -->
-      <a href="html/product/tablet.html" class="product-link">
-        <div class="product-card">
-          <div class="product-image">
-            <img src="public/images/products carousel/tab.jpg" alt="Tablet" />
-            <span class="discount-tag">30%</span>
-          </div>
-          <div class="product-info">
-            <span class="category">TABLET</span>
-            <h3 class="product-name">Tablet Pro 128 GB HD</h3>
-            <p class="product-description">RAM 8 GB 1080P 4K ... (120)</p>
-            <p class="star">★★★★★</p>
-            <div class="price">
-              <span class="current-price">$129.00</span>
-              <span class="original-price">~$179.00~</span>
-            </div>
-          </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="public/images/products carousel/tab.jpg" alt="Tablet" />
+          <span class="discount-tag">30%</span>
         </div>
-      </a>
+        <div class="product-info">
+          <span class="category">TABLET</span>
+          <h3 class="product-name">Tablet Pro 128 GB HD</h3>
+          <p class="product-description">RAM 8 GB 1080P 4K ... (120)</p>
+          <p class="star">★★★★★</p>
+          <div class="price">
+            <span class="current-price">$129.00</span>
+            <span class="original-price">~$179.00~</span>
+          </div>
+          <a href="public/docs/La Imperial Tablet Pro 128 GB Overview.docx" onclick="open" class="btn-download">Download Details</a>
+        </div>
+      </div>
 
       <!-- Product Card 2: Laptop -->
-      <a href="html/product/laptop.html" class="product-link">
-        <div class="product-card">
-          <div class="product-image">
-            <img
-              src="public/images/products carousel/laptop.jpg"
-              alt="Laptop"
-            />
-          </div>
-          <div class="product-info">
-            <span class="category">LAPTOP</span>
-            <h3 class="product-name">S21 Laptop Ultra HD LED</h3>
-            <p class="product-description">Screen Feature 2023 ... (100)</p>
-            <p class="star">★★★★★</p>
-            <div class="price">
-              <span class="current-price">$1,989.00</span>
-            </div>
-          </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="public/images/products carousel/laptop.jpg" alt="Laptop" />
         </div>
-      </a>
+        <div class="product-info">
+          <span class="category">LAPTOP</span>
+          <h3 class="product-name">S21 Laptop Ultra HD LED</h3>
+          <p class="product-description">Screen Feature 2023 ... (100)</p>
+          <p class="star">★★★★★</p>
+          <div class="price">
+            <span class="current-price">$1,989.00</span>
+          </div>
+          <a href="public/docs/S21 Laptop Ultra HD LED Product Overview.docx" onclick="open" class="btn-download">Download Details</a>
+        </div>
+      </div>
 
       <!-- Product Card 3: Audio -->
-      <a href="html/product/headphones.html" class="product-link">
-        <div class="product-card">
-          <div class="product-image">
-            <img
-              src="public/images/products carousel/headphone.jpg"
-              alt="Headphones"
-            />
-          </div>
-          <div class="product-info">
-            <span class="category">AUDIO</span>
-            <h3 class="product-name">
-              WH-1000XM4 Wireless Headphones High Q...
-            </h3>
-            <p class="product-description">(120)</p>
-            <p class="star">★★★★★</p>
-            <div class="price">
-              <span class="current-price">$59.00</span>
-            </div>
-          </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="public/images/products carousel/headphone.jpg"
+            alt="Headphones"
+          />
         </div>
-      </a>
+        <div class="product-info">
+          <span class="category">AUDIO</span>
+          <h3 class="product-name">WH-1000XM4 Wireless Headphones High Q...</h3>
+          <p class="product-description">(120)</p>
+          <p class="star">★★★★★</p>
+          <div class="price">
+            <span class="current-price">$59.00</span>
+          </div>
+          <a href="public/docs/WH-1000XM4 Wireless Headphones Overview and Analysis.docx" onclick="open" class="btn-download">Download Details</a>
+        </div>
+      </div>
 
       <!-- Product Card 4: Home -->
-      <a href="html/product/washing-machine.html" class="product-link">
-        <div class="product-card">
-          <div class="product-image">
-            <img
-              src="public/images/products carousel/watchingMachine.jpg"
-              alt="Washing Machine"
-            />
-            <span class="discount-tag">10%</span>
-          </div>
-          <div class="product-info">
-            <span class="category">HOME</span>
-            <h3 class="product-name">
-              Wash Machine 11 KG Front Loading Steam ...
-            </h3>
-            <p class="product-description">(120)</p>
-            <p class="star">★★★★★</p>
-            <div class="price">
-              <span class="current-price">$5,699.00</span>
-              <span class="original-price">~$5,999.00~</span>
-            </div>
-          </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="public/images/products carousel/watchingMachine.jpg"
+            alt="Washing Machine"
+          />
+          <span class="discount-tag">10%</span>
         </div>
-      </a>
+        <div class="product-info">
+          <span class="category">HOME</span>
+          <h3 class="product-name">
+            Wash Machine 11 KG Front Loading Steam ...
+          </h3>
+          <p class="product-description">(120)</p>
+          <p class="star">★★★★★</p>
+          <div class="price">
+            <span class="current-price">$5,699.00</span>
+            <span class="original-price">~$5,999.00~</span>
+          </div>
+          <a href="public/docs/Wash Machine 11 KG Front Loader Overview.docx" onclick="open" class="btn-download">Download Details</a>
+        </div>
+      </div>
 
       <!-- Product Card 5: Camera -->
-      <a href="html/product/camera.html" class="product-link">
-        <div class="product-card">
-          <div class="product-image">
-            <img src="public/images/products carousel/camra.jpg" alt="Camera" />
-          </div>
-          <div class="product-info">
-            <span class="category">CAMERA</span>
-            <h3 class="product-name">CamPro HERO10 Black</h3>
-            <p class="product-description">Sleek Design 2023 4K ... (20)</p>
-            <p class="star">★★★★★</p>
-            <div class="price">
-              <span class="current-price">$1,499.99</span>
-            </div>
-          </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="public/images/products carousel/camra.jpg" alt="Camera" />
         </div>
-      </a>
+        <div class="product-info">
+          <span class="category">CAMERA</span>
+          <h3 class="product-name">CamPro HERO10 Black</h3>
+          <p class="product-description">Sleek Design 2023 4K ... (20)</p>
+          <p class="star">★★★★★</p>
+          <div class="price">
+            <span class="current-price">$1,499.99</span>
+          </div>
+          <a href="public/docs/CamPro HERO10 Black Comprehensive Product Review.docx" onclick="open" class="btn-download">Download Details</a>
+        </div>
+      </div>
     </div>
     <!--  CART Pagenation SECTION END -->
     <br />
@@ -408,79 +628,157 @@
       </ul>
     </div>
     <!-- Pagination Container End!-->
-    <footer style="background: #fff; padding-top: 40px">
-      <section class="faq">
-        <h2>FREQUENTLY ASKED QUESTIONS</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>What payment methods do you accept?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>We accept various secure payment methods including:</p>
-              <ul>
-                <li>Credit/Debit Cards (Visa, MasterCard, AmEx)</li>
-                <li>PayPal</li>
-                <li>Bank Transfers</li>
-                <li>Digital Wallets (Apple Pay, Google Pay)</li>
-              </ul>
-            </div>
+    <!-- Add Brands Section -->
+    <section id="brands" class="container mt-5">
+      <h2>Shop by Brand</h2>
+      <div class="brand-buttons">
+        <button class="btn btn-outline-primary" onclick="filterByBrand('Haier')">Haier</button>
+        <button class="btn btn-outline-primary" onclick="filterByBrand('Samsung')">Samsung</button>
+        <button class="btn btn-outline-primary" onclick="filterByBrand('LG')">LG</button>
+        <button class="btn btn-outline-primary" onclick="filterByBrand('Sony')">Sony</button>
+      </div>
+    </section>
+
+    <!-- Add Categories Section -->
+    <section id="categories" class="container mt-5">
+      <h2>Shop by Category</h2>
+      <div class="category-buttons">
+        <button class="btn btn-outline-secondary" onclick="filterByCategory('Washers & Dryers')">Washers & Dryers</button>
+        <button class="btn btn-outline-secondary" onclick="filterByCategory('Refrigerators')">Refrigerators</button>
+        <button class="btn btn-outline-secondary" onclick="filterByCategory('Microwaves')">Microwaves</button>
+        <button class="btn btn-outline-secondary" onclick="filterByCategory('Air Conditioners')">Air Conditioners</button>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What payment methods do you accept?</span>
+            <i class="fas fa-chevron-down"></i>
           </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>How long does shipping take?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Shipping times vary by location:</p>
-              <ul>
-                <li>Standard Domestic: 3-5 business days</li>
-                <li>Express Domestic: 1-2 business days</li>
-                <li>International: 7-14 business days</li>
-              </ul>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Do you offer international shipping?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                Yes, we proudly offer international shipping to over 50
-                countries!
-              </p>
-              <ul>
-                <li>Free shipping on orders over $500</li>
-                <li>Standard international delivery: 7-14 business days</li>
-                <li>Express international delivery: 3-5 business days</li>
-                <li>Real-time package tracking available</li>
-              </ul>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              <span>Can I track my order?</span>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>Yes! We provide comprehensive order tracking:</p>
-              <ul>
-                <li>Get instant tracking number via email</li>
-                <li>Track through your account dashboard</li>
-                <li>Real-time status updates</li>
-                <li>SMS notifications available</li>
-                <li>24/7 customer support for tracking assistance</li>
-              </ul>
-            </div>
+          <div class="faq-answer">
+            <p>We accept various secure payment methods including:</p>
+            <ul>
+              <li>Credit/Debit Cards (Visa, MasterCard, AmEx)</li>
+              <li>PayPal</li>
+              <li>Bank Transfers</li>
+              <li>Digital Wallets (Apple Pay, Google Pay)</li>
+            </ul>
           </div>
         </div>
-      </section>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How long does shipping take?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Shipping times vary by location:</p>
+            <ul>
+              <li>Standard Domestic: 3-5 business days</li>
+              <li>Express Domestic: 1-2 business days</li>
+              <li>International: 7-14 business days</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you offer international shipping?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes, we proudly offer international shipping to over 50 countries!
+            </p>
+            <ul>
+              <li>Free shipping on orders over $500</li>
+              <li>Standard international delivery: 7-14 business days</li>
+              <li>Express international delivery: 3-5 business days</li>
+              <li>Real-time package tracking available</li>
+              <li>Customs and duties may apply based on your location</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is your return policy?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We offer a hassle-free return policy to ensure customer
+              satisfaction:
+            </p>
+            <ul>
+              <li>Returns accepted within 30 days of purchase</li>
+              <li>Items must be in original condition and packaging</li>
+              <li>Refunds processed within 5-7 business days</li>
+              <li>Contact our support team for assistance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* FAQ Section Styles */
+      .faq {
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+
+      .faq h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 200px; /* Adjust based on content */
+      }
+
+      .faq-item.active .fa-chevron-down {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+      }
+    </style>
+
+
+    <footer style="background-color: #f8f9fa; padding-top: 40px">
       <!-- Tech Talk Section -->
       <section
         class="tech-talk"
-        style="background: #fff; margin: 0; padding: 40px 20px"
+        style="
+          background: #fff;
+          margin: 0;
+          padding: 40px 20px;
+          margin-bottom: 50px;
+          border-radius: 15px;
+        "
       >
         <h2>TECH TALK</h2>
         <p class="subtitle">
@@ -625,57 +923,96 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const faqItems = document.querySelectorAll(".faq-item");
-      faqItems.forEach((item) => {
+
+      if (faqItems.length === 0) {
+        console.error(
+          "No FAQ items found. Ensure the HTML structure is correct."
+        );
+        return;
+      }
+
+      console.log("FAQ items found:", faqItems.length);
+
+      faqItems.forEach((item, index) => {
         const question = item.querySelector(".faq-question");
         const answer = item.querySelector(".faq-answer");
         const icon = item.querySelector(".fa-chevron-down");
+
+        if (!question || !answer || !icon) {
+          console.error(`Missing elements in FAQ item at index ${index}`);
+          return;
+        }
+
+        console.log(`FAQ item ${index} initialized.`);
+
+        // Ensure the answer has a transition for smooth animation
+        answer.style.transition = "max-height 0.3s ease";
+        answer.style.overflow = "hidden";
+        answer.style.maxHeight = "0";
+
         question.addEventListener("click", () => {
-          // Close other open items
-          faqItems.forEach((otherItem) => {
+          const isActive = item.classList.contains("active");
+          console.log(`FAQ item ${index} clicked. Active: ${isActive}`);
+          console.log(otherItem, item);
+          // Close all other items
+          faqItems.forEach((otherItem, otherIndex) => {
             if (otherItem !== item && otherItem.classList.contains("active")) {
+              console.log(`Closing FAQ item ${otherIndex}`);
               otherItem.classList.remove("active");
-              otherItem.querySelector(".faq-answer").style.maxHeight = null;
-              otherItem.querySelector(".fa-chevron-down").style.transform =
-                "rotate(0deg)";
+              const otherAnswer = otherItem.querySelector(".faq-answer");
+              const otherIcon = otherItem.querySelector(".fa-chevron-down");
+              if (otherAnswer) {
+                otherAnswer.style.maxHeight = "0";
+                console.log(`FAQ item ${otherIndex} maxHeight set to 0`);
+              }
+              if (otherIcon) {
+                otherIcon.style.transform = "rotate(0deg)";
+                console.log(`FAQ item ${otherIndex} icon rotated to 0deg`);
+              }
             }
           });
+
           // Toggle current item
-          item.classList.toggle("active");
-          if (item.classList.contains("active")) {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-            icon.style.transform = "rotate(180deg)";
-          } else {
-            answer.style.maxHeight = null;
+          if (isActive) {
+            console.log(`Deactivating FAQ item ${index}`);
+            item.classList.remove("active");
+            answer.style.maxHeight = "0";
             icon.style.transform = "rotate(0deg)";
+          } else {
+            console.log(`Activating FAQ item ${index}`);
+            item.classList.add("active");
+
+            // Force reflow to ensure the transition works
+            answer.style.maxHeight = "none"; // Temporarily set to none to calculate height
+            const scrollHeight = answer.scrollHeight; // Get the full height
+            answer.style.maxHeight = `${scrollHeight}px`; // Apply the height
+            console.log(`FAQ item ${index} maxHeight set to ${scrollHeight}px`);
+            icon.style.transform = "rotate(180deg)";
           }
+
+          // Debugging: Check the computed styles
+          const computedMaxHeight = window.getComputedStyle(answer).maxHeight;
+          console.log(
+            `FAQ item ${index} computed maxHeight: ${computedMaxHeight}`
+          );
         });
       });
-
-      const categoriesBtn = document.getElementById("categoriesBtn");
-      const categoriesDropdown = document.getElementById("categoriesDropdown");
-
-      if (categoriesBtn && categoriesDropdown) {
-        // Toggle dropdown visibility
-        categoriesBtn.addEventListener("click", function () {
-          const isExpanded =
-            categoriesBtn.getAttribute("aria-expanded") === "true";
-          categoriesBtn.setAttribute("aria-expanded", !isExpanded);
-          categoriesDropdown.style.maxHeight = isExpanded
-            ? "0"
-            : `${categoriesDropdown.scrollHeight}px`;
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener("click", function (event) {
-          if (
-            !categoriesBtn.contains(event.target) &&
-            !categoriesDropdown.contains(event.target)
-          ) {
-            categoriesBtn.setAttribute("aria-expanded", "false");
-            categoriesDropdown.style.maxHeight = "0";
-          }
-        });
-      }
     });
+
+    function filterByBrand(brand) {
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const category = product.querySelector('.category').textContent;
+        product.style.display = category.includes(brand) ? 'block' : 'none';
+      });
+    }
+
+    function filterByCategory(category) {
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const categoryText = product.querySelector('.category').textContent;
+        product.style.display = categoryText.includes(category) ? 'block' : 'none';
+      });
+    }
   </script>
 </html>
